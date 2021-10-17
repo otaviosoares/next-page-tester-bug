@@ -1,8 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
+import { useTestHook } from '../test-hook'
 
 export default function Home() {
+  const {someFn} = useTestHook()
+  useEffect(() => {
+    someFn()
+  }, [someFn])
   return (
     <div className={styles.container}>
       <Head>
